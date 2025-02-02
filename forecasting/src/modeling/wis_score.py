@@ -10,10 +10,10 @@ def WIS_3_and_coverage(
     quantile_levels: list[float] = QuantileConfig.quantile_levels,
 ) -> tuple[float, int]:
     """Weighted interval score (WIS) for K = 3, that is 3 quantile intervals, e.g. [0.05, 0.5, 0.95]
-    REF:
-    https://arxiv.org/pdf/2005.12881 - formula (4)
-    https://cran.r-project.org/web/packages/scoringutils/vignettes/metric-details.html
-    https://catboost.ai/en/docs/concepts/loss-functions-regression#MultiQuantile
+    REFs:
+    (1) https://arxiv.org/pdf/2005.12881 - formula (4)
+    (2) https://cran.r-project.org/web/packages/scoringutils/vignettes/metric-details.html
+    (3) https://catboost.ai/en/docs/concepts/loss-functions-regression#MultiQuantile
     """
     assert (
         len(quantile_levels) == 3

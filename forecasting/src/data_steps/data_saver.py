@@ -93,7 +93,7 @@ if __name__ == "__main__":
     from src.data_steps.data_importer import get_s3_data
 
     parent_directory = os.path.abspath(os.path.join(os.getcwd(), ".."))
-    forecast_df_path = os.path.join(parent_directory, "data/forecast_data.csv")
+    forecast_df_path = os.path.join(parent_directory, "../data/forecast_data.csv")
     forecast_df = pd.read_csv(forecast_df_path)
     forecast_df = convert_str_to_berlin_zone_timestamp_column(
         forecast_df, column_name="timestamp"
@@ -145,7 +145,7 @@ if __name__ == "__main__":
         s3_path=s3_path,
         mode="overwrite",
         partition_by=["year_week"],
-    )  # , partition_filters=[("year_week", "=", "2024-W32")])
+    )
 
     df = get_s3_data(delta_table_path=s3_path, storage_config=storage_config)
     print(df.year_week.unique(), len(df), df)

@@ -68,20 +68,3 @@ def get_cv_params(trial: Trial | None = None, best_params: dict = None):
             "model_size_reg": best_params["model_size_reg"],
             "subsample": best_params["subsample"],
         }
-
-
-""" 
-# This we do not tune if the model is not the first one:
-
-"l2_leaf_reg": trial.suggest_float("l2_leaf_reg", 
-                                    best_params["l2_leaf_reg"] * 0.8, 
-                                    best_params["l2_leaf_reg"] * 1.2,
-                                    log=True),
-"model_size_reg": trial.suggest_float("model_size_reg", 
-                                       best_params["model_size_reg"] * 0.8, 
-                                       best_params["model_size_reg"] * 1.2,
-                                       log=True),
-"subsample": trial.suggest_float("subsample", 
-                                        best_params["subsample"] * 0.8, 
-                                        min(best_params["subsample"] * 1.2, 1)),
-"""

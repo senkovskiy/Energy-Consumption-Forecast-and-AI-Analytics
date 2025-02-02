@@ -118,7 +118,7 @@ def plot_forecast_vs_actual(forecast_df, actual_df):
 
 if __name__ == "__main__":
 
-    plot_cv: bool = False
+    plot_cv: bool = True
     plot_forecast_actual: bool = True
 
     # get local data from one floor
@@ -130,14 +130,14 @@ if __name__ == "__main__":
 
     floor = 1
     parent_directory = os.path.abspath(os.path.join(os.getcwd(), ".."))
-    silver_df_path = os.path.join(parent_directory, "data/df_silver.csv")
-    df_silver = pd.read_csv(silver_df_path)
-    df_silver = convert_str_to_berlin_zone_timestamp_column(df_silver)
-    df_processed_full = preprocess_s3_data(df_silver)
+    consumption_df_path = os.path.join(parent_directory, "../data/consumption_data.csv")
+    df_consumption = pd.read_csv(consumption_df_path)
+    df_consumption = convert_str_to_berlin_zone_timestamp_column(df_consumption)
+    df_processed_full = preprocess_s3_data(df_consumption)
     df_processed_floor = df_processed_full[df_processed_full["floor"] == floor]
 
     if plot_forecast_actual:
-        forecast_df_path = os.path.join(parent_directory, "data/forecast_data.csv")
+        forecast_df_path = os.path.join(parent_directory, "../data/forecast_data.csv")
         forecast_df = pd.read_csv(forecast_df_path)
         forecast_df = convert_str_to_berlin_zone_timestamp_column(
             forecast_df, column_name="timestamp"

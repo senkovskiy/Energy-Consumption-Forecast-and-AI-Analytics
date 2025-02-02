@@ -273,7 +273,7 @@ if __name__ == "__main__":
             convert_str_to_berlin_zone_timestamp_column,
         )
 
-        consumption_df = pd.read_csv("../data/consumption_df.csv")
+        consumption_df = pd.read_csv("../data/consumption_df_full_02-02-2025.csv")
         consumption_df = convert_str_to_berlin_zone_timestamp_column(
             consumption_df, column_name="recordedtimestamp"
         )
