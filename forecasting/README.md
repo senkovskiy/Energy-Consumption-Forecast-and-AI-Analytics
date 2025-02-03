@@ -15,6 +15,7 @@ The energy consumption data is stored in `data/consumption_data.scv`.
 
 forecasts energy consumption for a building with four floors, using separate ML models for each floor. The pipeline runs weekly, generating a two-week forecast for each floor. The system includes cross-validation, hyperparameter tuning with Optuna, model tracking with MLflow, and model evaluation using the Mean Weighted Interval Score (MWIS).
 
+
 ## Features
 - **Time Series Cross-Validation**: Implements time-based cross-validation for robust model evaluation.
 - **MLflow Tracking**: Logs experiments, models, and results for reproducibility.
